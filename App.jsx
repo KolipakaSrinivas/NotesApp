@@ -4,6 +4,7 @@ import Editor from "./components/Editor"
 import Split from "react-split"
 import { onSnapshot, doc,addDoc, deleteDoc, setDoc } from "firebase/firestore"
 import { notesCollection , db} from "./firebase"
+
 export default function App() {
     const [notes, setNotes] = React.useState([])
     
@@ -42,6 +43,8 @@ export default function App() {
         }, 500)
         return () => clearTimeout(timeoutId)
     }, [tempNoteText])
+
+    console.log(notesCollection,tempNoteText)
 
 
     async function createNewNote() {
